@@ -17,15 +17,14 @@ class Sorter {
     }
 
     toArray() {
-        return this.arr;
+        return [...this.arr];
     }
 
     sort(indices) {
 
         indices.sort((a, b) => a - b);
-        let newArray = [];
 
-        indices.forEach((elem) => newArray.push(this.arr[elem]));
+        const newArray = indices.map(ind => this.arr[ind]);
 
         newArray.sort(this.comparator);
         indices.forEach((elem, i) => this.arr[elem] = newArray[i]);
